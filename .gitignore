@@ -1,0 +1,48 @@
+# Internal state related folders/files
+**/media
+**/tmp
+**/docker
+**/venv
+
+# ===============
+# Temporary files
+# ===============
+
+*.crt
+*.html
+*.yaml
+*.csv
+*.json
+*.txt
+*.bkp
+test.py
+
+# Python cache files
+**/__pycache__
+*.pyc
+
+
+# ===============
+# Sensitive files
+# ===============
+
+# Logging
+**/log
+*.log
+
+# Database files
+*.db
+*.sqlite3
+
+# Environment files
+**/.env
+*.env
+
+# ==========
+# Exceptions
+# ==========
+
+# Allow Python requirements file
+!requirements.txt
+!template.env
+!business_details_template.csv
