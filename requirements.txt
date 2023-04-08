@@ -21,3 +21,4 @@ requests
 xlsxwriter
 drf-yasg
 PyPDF2
+beautifulsoup4
