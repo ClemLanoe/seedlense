@@ -2,7 +2,7 @@ import boto3
 import datetime
 import os
 import tempfile
-import threading
+import logging
 import requests
 import json
 from email.mime.application import MIMEApplication
@@ -18,7 +18,12 @@ from seedrs_bot.utils import seedrs
 from seedrs_bot.utils import proxy_manager
 
 from . import forms
-from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD, WEBSHARE_KEY
+from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
+from myseedrs.settings import WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW
+
+logging.basicConfig()
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def index(request):
     return render(request, 'tools/index.html')
@@ -45,8 +50,7 @@ class CompanyTrades(FormView):
         if form.is_valid():
             company_id = int(request.POST["company_id"])
 
-            session = requests.Session()
-            session.proxies.update(proxy_manager.get_proxy(WEBSHARE_KEY))
+            session = proxy_manager.get_proxied_session(WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW)
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             company_sm_trades = seedrs.get_share_lots(session, company_id, availability='sold')
@@ -74,12 +78,9 @@ class BuyerSeller(FormView):
             tmp_buyer = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf").name
             tmp_seller = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf").name
 
-            print(tmp_buyer, tmp_seller)
-
             share_lot_id = str(request.POST["share_lot_id"])
 
-            session = requests.Session()
-            session.proxies.update(proxy_manager.get_proxy(WEBSHARE_KEY))
+            session = proxy_manager.get_proxied_session(WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW)
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             transaction_data = seedrs.get_transactors(session, share_lot_id, tmp_buyer, tmp_seller)

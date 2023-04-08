@@ -18,7 +18,10 @@ load_dotenv()
 
 SEEDRS_USERNAME = os.environ['SEEDRS_USERNAME']
 SEEDRS_PASSWORD = os.environ['SEEDRS_PASSWORD']
+
 WEBSHARE_KEY = os.environ['WEBSHARE_KEY']
+WEBSHARE_USER= os.environ['WEBSHARE_USER']
+WEBSHARE_PW= os.environ['WEBSHARE_PW']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +36,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ['ALLOWED_HOST']]
+ALLOWED_HOSTS = [os.environ['ALLOWED_HOST'], "127.0.0.1"]
 
 
 # Application definition
