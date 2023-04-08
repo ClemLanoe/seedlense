@@ -1,4 +1,5 @@
-git+https://${SEEDRS_BOT_TOKEN}@github.com/ClemLanoe/seedrs-bot.git
+# git+https://${SEEDRS_BOT_TOKEN}@github.com/ClemLanoe/seedrs-bot.git
+git+https://${GITHUB_USER}:${SEEDRS_BOT_TOKEN}@github.com/ClemLanoe/seedrs-bot.git
 
 Django==4.1.4
 django-axes==5.40.1
