@@ -3,5 +3,7 @@ A simple django web app for useful Seedrs tools and utilities. Prod version has 
 
 ## To install and run locally 
 `source .env`
+
 `pip install requirements.txt`
+
 `python manage.py runserver`
