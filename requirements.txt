@@ -22,3 +22,4 @@ xlsxwriter
 drf-yasg
 PyPDF2
 beautifulsoup4
+gunicorn
