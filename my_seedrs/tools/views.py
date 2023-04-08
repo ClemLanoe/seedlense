@@ -18,7 +18,7 @@ from seedrs_bot.utils import seedrs
 from seedrs_bot.utils import proxy_manager
 
 from . import forms
-from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
+from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD, WEBSHARE_KEY
 
 def index(request):
     return render(request, 'tools/index.html')
@@ -79,7 +79,7 @@ class BuyerSeller(FormView):
             share_lot_id = str(request.POST["share_lot_id"])
 
             session = requests.Session()
-            session.proxies.update(proxy_manager.get_proxy())
+            session.proxies.update(proxy_manager.get_proxy(WEBSHARE_KEY))
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             transaction_data = seedrs.get_transactors(session, share_lot_id, tmp_buyer, tmp_seller)

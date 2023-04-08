@@ -18,6 +18,7 @@ load_dotenv()
 
 SEEDRS_USERNAME = os.environ['SEEDRS_USERNAME']
 SEEDRS_PASSWORD = os.environ['SEEDRS_PASSWORD']
+WEBSHARE_KEY = os.environ['WEBSHARE_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
