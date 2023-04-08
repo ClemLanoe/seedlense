@@ -14,7 +14,6 @@ djangorestframework==3.14.0
 # Others
 boto3
 matplotlib
-mysqlclient
 openpyxl
 pandas
 python-dotenv
