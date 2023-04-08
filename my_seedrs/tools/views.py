@@ -46,7 +46,7 @@ class CompanyTrades(FormView):
             company_id = int(request.POST["company_id"])
 
             session = requests.Session()
-            session.proxies.update(proxy_manager.get_proxy())
+            session.proxies.update(proxy_manager.get_proxy(WEBSHARE_KEY))
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             company_sm_trades = seedrs.get_share_lots(session, company_id, availability='sold')
