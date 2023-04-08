@@ -48,12 +48,21 @@ class CompanyTrades(FormView):
         form = self.get_form(form_class)
 
         if form.is_valid():
-            company_id = int(request.POST["company_id"])
+            company_entry = str(request.POST["company_entry"])
+            entry_type = str(request.POST["entry_type"])
 
             session = proxy_manager.get_proxied_session(WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW)
+
+            if entry_type == 'url':
+                company_id = seedrs.get_business_id(session, company_entry)
+            elif entry_type == 'company_id':
+                company_id = company_entry
+
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             company_sm_trades = seedrs.get_share_lots(session, company_id, availability='sold')
+
+            session.close()
 
             return JsonResponse(company_sm_trades, safe=False)
 
@@ -84,6 +93,8 @@ class BuyerSeller(FormView):
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
             transaction_data = seedrs.get_transactors(session, share_lot_id, tmp_buyer, tmp_seller)
+
+            session.close()
 
             return JsonResponse(transaction_data, safe=False)
 
