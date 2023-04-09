@@ -9,7 +9,6 @@
 # ===============
 
 *.crt
-*.html
 *.yaml
 *.csv
 *.json
