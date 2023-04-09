@@ -1,0 +1,12 @@
+.form-text, .form-label {
+    text-align: left;
+    display: block;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .column-title {
+    min-width: 500px;
+  }
