@@ -64,7 +64,7 @@ class CompanyTrades(FormView):
 
             session.close()
 
-            return JsonResponse(company_sm_trades, safe=False, json_dumps_params={'indent': 3})
+            return JsonResponse(company_sm_trades, safe=False)
 
         return self.form_invalid(form)
 
@@ -96,7 +96,7 @@ class BuyerSeller(FormView):
 
             session.close()
 
-            return JsonResponse(transaction_data, safe=False, json_dumps_params={'indent': 3})
+            return JsonResponse(transaction_data, safe=False)
 
         return self.form_invalid(form)
 
