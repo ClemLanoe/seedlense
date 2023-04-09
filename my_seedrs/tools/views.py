@@ -60,7 +60,7 @@ class CompanyTrades(FormView):
 
             seedrs.log_in(session, SEEDRS_USERNAME, SEEDRS_PASSWORD)
 
-            company_sm_trades = seedrs.get_share_lots(session, company_id, availability='sold')
+            company_sm_trades = seedrs.get_share_lots(session, company_id, availability='sold', output='filtered')
 
             session.close()
 
