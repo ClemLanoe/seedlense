@@ -42,13 +42,14 @@ ALLOWED_HOSTS = [os.environ['ALLOWED_HOST'], "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
+    'paywall.apps.PaywallConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_bootstrap5'
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
