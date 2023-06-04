@@ -34,12 +34,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [os.environ['ALLOWED_HOST'], "127.0.0.1", ".clemlanoe.com"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://clemlanoe.com"
+    "https://clemlanoe.com",
 ]
 
 # Application definition
