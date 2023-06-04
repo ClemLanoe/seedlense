@@ -23,4 +23,4 @@ drf-yasg
 PyPDF2
 beautifulsoup4
 gunicorn
-mysqlclient
+pymysql
