@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {# Load the tag library #}
 {% load django_bootstrap5 %}
@@ -15,8 +16,8 @@
 {# Display tools #}
 {% block content %}
 <ul>
-  <!-- <h2>Articles</h2> -->
-    <!-- <li><a href="/utils/upload_articles/">Upload articles</a></li> -->
   <h2>Portfolio Overview</h2>
+  <p><span id="changeme">Now this is some sweet HTML!</span></p>
+  <script src="{% static 'js/greenlight.js' %}"></script>
 </ul>
 {% endblock %}
