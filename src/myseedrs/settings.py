@@ -38,11 +38,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = [os.environ['ALLOWED_HOST'], "127.0.0.1", ".clemlanoe.com"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://clemlanoe.com"
+]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'paywall.apps.PaywallConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+
+    'paywall',
+    'tools',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
