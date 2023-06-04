@@ -1,7 +1,7 @@
 from django.db import models
-# from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
-# user_model = get_user_model()
+user_model = get_user_model()
 
 # Create your models here.
 
@@ -25,5 +25,6 @@ from django.db import models
 #     class Meta:
 #         db_table = "article"
 
-class Paywall(models.Model):
+class Page(models.Model):
+    user_id = models.ForeignKey(user_model, related_name='+', null=True, on_delete=models.SET_NULL, db_column="user_id")
     page_url = models.CharField(db_column="page_url", verbose_name='Page URL', max_length=255)
