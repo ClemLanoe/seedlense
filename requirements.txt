@@ -1,15 +1,15 @@
 # git+https://${SEEDRS_BOT_TOKEN}@github.com/ClemLanoe/seedrs-bot.git
 git+https://${GITHUB_USER}:${SEEDRS_BOT_TOKEN}@github.com/ClemLanoe/seedrs-bot.git
 
-Django==4.1.4
-django-axes==5.40.1
-django-bootstrap5==22.2
-django-csp==3.7
-django-bootstrap-datepicker-plus==5.0.3
-django-debug-toolbar==3.8.1
-django-extensions==3.2.1
-django-summernote==0.8.20.0
-djangorestframework==3.14.0
+Django
+django-axes
+django-bootstrap5
+django-csp
+django-bootstrap-datepicker-plus
+django-debug-toolbar
+django-extensions
+django-summernote
+djangorestframework
 
 # Others
 boto3
@@ -23,3 +23,4 @@ drf-yasg
 PyPDF2
 beautifulsoup4
 gunicorn
+mysqlclient
