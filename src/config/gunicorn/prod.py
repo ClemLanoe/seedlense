@@ -8,6 +8,8 @@ wsgi_app = "myseedrs.wsgi:application"
 workers = multiprocessing.cpu_count() * 2 + 1
 # The socket to bind
 bind = "0.0.0.0:8000"
+# Restart workers when code changes (development only!)
+reload = True
 # Write access and error info to /var/log
 accesslog = "/var/log/gunicorn/access.log"
 errorlog = "/var/log/gunicorn/error.log"
