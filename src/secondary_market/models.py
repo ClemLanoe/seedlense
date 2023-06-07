@@ -45,14 +45,13 @@ class Business(models.Model):
             return last_cycle[0]["trade_volume"]
         else:
             return 0.00
-        
+
     class Meta:
         db_table = "business"
         verbose_name_plural = "businesses"
 
-class Cycles(models.Model):
+class Cycle(models.Model):
     business = models.ForeignKey(Business, on_delete=models.DO_NOTHING)
     cycle_start = models.DateTimeField()
     cycle_end = models.DateTimeField()
     trade_volume = models.IntegerField()
-
