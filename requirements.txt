@@ -23,4 +23,5 @@ drf-yasg
 PyPDF2
 beautifulsoup4
 gunicorn
+django-countries
 pymysql

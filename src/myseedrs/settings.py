@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'paywall',
     'tools',
     'portfolio',
+    'secondary_market',
 ]
 
 MIDDLEWARE = [
