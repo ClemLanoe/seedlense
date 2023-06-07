@@ -55,3 +55,17 @@ class Cycle(models.Model):
     cycle_start = models.DateTimeField()
     cycle_end = models.DateTimeField()
     trade_volume = models.IntegerField()
+
+class Person(models.Model):
+    name = models.CharField(max_length=255)
+    active_on_forums = models.BooleanField()
+
+class Transaction(models.Model):
+    buyer = models.ForeignKey(Person, related_name= '+', on_delete=models.DO_NOTHING)
+    seller = models.ForeignKey(Person, related_name='+', on_delete=models.DO_NOTHING)
+    # Add more fields for transaction #TODO
+
+class ForumPost(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.DO_NOTHING)
+    post_url = models.CharField(max_length=255)
+    post_summary = models.CharField(max_length=255)
