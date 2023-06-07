@@ -60,6 +60,9 @@ class Person(models.Model):
     name = models.CharField(max_length=255)
     active_on_forums = models.BooleanField()
 
+    class Meta:
+        verbose_name_plural = "people"
+
 class Transaction(models.Model):
     buyer = models.ForeignKey(Person, related_name= '+', on_delete=models.DO_NOTHING)
     seller = models.ForeignKey(Person, related_name='+', on_delete=models.DO_NOTHING)
