@@ -19,10 +19,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    path("__debug__/", include("debug_toolbar.urls")),
     path('', views.index),
     path('portfolio/', include('portfolio.urls')),
     path('tools/', include('tools.urls')),
     path('paywall/', include('paywall.urls')),
     path('admin/', admin.site.urls),
-    path("__debug__/", include("debug_toolbar.urls")),
 ]
