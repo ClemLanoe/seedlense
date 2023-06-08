@@ -24,4 +24,5 @@ urlpatterns = [
     path('tools/', include('tools.urls')),
     path('paywall/', include('paywall.urls')),
     path('admin/', admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
