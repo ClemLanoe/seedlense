@@ -1,5 +1,5 @@
 """
-ASGI config for myseedrs project.
+ASGI config for seedlense project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myseedrs.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'seedlense.settings')
 
 application = get_asgi_application()

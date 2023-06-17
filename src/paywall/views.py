@@ -14,8 +14,8 @@ from seedrs_bot.utils import seedrs
 from seedrs_bot.utils import proxy_manager
 
 from . import forms
-from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
-from myseedrs.settings import WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW
+from seedlense.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
+from seedlense.settings import WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW
 
 logging.basicConfig()
 logger = logging.getLogger()
@@ -37,7 +37,7 @@ class Paywall(FormView):
             response['page_data'] = page_data
 
             return response
-    
+
         return self.form_invalid(form)
 
     def post(self, request, *args, **kwargs):

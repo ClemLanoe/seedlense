@@ -18,8 +18,8 @@ from seedrs_bot.utils import seedrs
 from seedrs_bot.utils import proxy_manager
 
 from . import forms
-from myseedrs.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
-from myseedrs.settings import WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW
+from seedlense.settings import SEEDRS_USERNAME, SEEDRS_PASSWORD
+from seedlense.settings import WEBSHARE_KEY, WEBSHARE_USER, WEBSHARE_PW
 
 logging.basicConfig()
 logger = logging.getLogger()
@@ -132,6 +132,6 @@ class AllBuyersSellers(FormView):
             return JsonResponse(transaction_data, safe=False, json_dumps_params={'indent': 3})
 
         return self.form_invalid(form)
-    
+
 def company_sm_trades(request, trades):
     return render(request, "/tools/company/sm_trades/view", context=company_sm_trades)
