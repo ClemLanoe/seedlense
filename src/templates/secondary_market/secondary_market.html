@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{# Load the tag library #}
+{% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% block extra_head %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% endblock %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{# Display tools #}
+{% block content %}
+<ul>
+  <h2>Portfolio Overview</h2>
+  <p><span id="changeme">Now this is some sweet HTML!</span></p>
+  <script src="{% static 'js/greenlight.js' %}"></script>
+</ul>
+{% endblock %}

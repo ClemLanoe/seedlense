@@ -99,27 +99,27 @@ WSGI_APPLICATION = 'myseedrs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": os.environ["DB_ENGINE"],
-        "NAME": os.environ["DB_NAME"],
-        "USER": os.environ["DB_USER"],
-        "PASSWORD": os.environ["DB_PW"],
-        "HOST": os.environ["DB_HOST"],
-        "PORT": os.environ["DB_PORT"],
-        "OPTIONS": {
-            "sql_mode": "traditional",
-            "charset": "utf8mb4",
-        }
-    },
-}
-# Offline db testing
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#     "default": {
+#         "ENGINE": os.environ["DB_ENGINE"],
+#         "NAME": os.environ["DB_NAME"],
+#         "USER": os.environ["DB_USER"],
+#         "PASSWORD": os.environ["DB_PW"],
+#         "HOST": os.environ["DB_HOST"],
+#         "PORT": os.environ["DB_PORT"],
+#         "OPTIONS": {
+#             "sql_mode": "traditional",
+#             "charset": "utf8mb4",
+#         }
+#     },
 # }
+# Offline db testing
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -163,3 +163,7 @@ STATIC_ROOT = "/var/www/myseedrs/static"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login/"
