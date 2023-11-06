@@ -62,7 +62,11 @@ INSTALLED_APPS = [
     'tools',
     'portfolio',
     'secondary_market',
+    # 'members',
 ]
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,6 +117,7 @@ WSGI_APPLICATION = 'seedlense.wsgi.application'
 #         }
 #     },
 # }
+
 # Offline db testing
 DATABASES = {
     'default': {

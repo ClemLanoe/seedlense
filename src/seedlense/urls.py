@@ -22,8 +22,13 @@ from . import views
 urlpatterns = [
     # path("__debug__/", include("debug_toolbar.urls")),
     path('', views.index),
+    path('', include('django.contrib.auth.urls')),
+    path("login/", views.login_user, name="login"),
+    path("logout/", views.logout_user, name="logout"),
+    path("register/", views.register_user, name="register"),
     path('portfolio/', include('portfolio.urls')),
     path('tools/', include('tools.urls')),
     path('paywall/', include('paywall.urls')),
+    path('paywall/', include('secondary_market.urls')),
     path('admin/', admin.site.urls),
 ]

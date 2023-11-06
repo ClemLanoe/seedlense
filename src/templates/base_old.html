@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seedlense{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="/">Seedlense</a>
+      <a class="navbar-brand mx-auto" href="/portfolio">Portfolio</a>
+      <a class="navbar-brand mx-auto" href="/tools">Tools</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Tools
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">All Venues</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="dropdown-item" href="#">Add Venue</a></li>
+          {% endif %}
+        </ul>
+      </li>
+      <a class="navbar-brand mx-auto" href="/paywall">Paywall</a>
+
+      {% if user.is_authenticated %}
+      <a class="navbar-brand mx-auto" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a class="navbar-brand mx-auto" href="{% url 'login' %}">Login</a>
+      <a class="navbar-brand mx-auto" href="{% url 'register' %}">Sign Up</a>
+      {% endif %}
+    </div>
+  </nav>
+  <div class="container">
+    {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="container text-center mt-5 p-4 border border-2 border-secondary rounded-4">
+    {% block content %}{% endblock %}
+  </div>
+  {% block body_scripts %}{% endblock %}
+</body>
+
+</html>

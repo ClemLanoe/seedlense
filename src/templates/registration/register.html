@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{# Load the tag library #}
+{% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% block extra_head %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% endblock %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{# Display tools #}
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  There was an error with your form...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+{% endif %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+  <h1>Register</h1>
+  <br />
+
+
+  <form action="{% url 'register_user' %}" method=POST>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+
+
+
+
+    <br /><br />
+    <input type="submit" value="Submit" class="btn btn-secondary">
+
+  </form>
+
+</div>
+<br /><br />
+{% endblock %}
